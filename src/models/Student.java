@@ -10,23 +10,9 @@ public class Student {
     private  Gender gender;
     private Group group;
     private Lesson lesson;
+    private int id;
 
-    public Student(String firstName, String lastName, String email, String password, Gender gender, Group group, Lesson lesson) {
-        this.firstName = firstName;
-        LastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.gender = gender;
-        this.group = group;
-        this.lesson = lesson;
-    }
-
-    public Student(String firstName, String lastName, String email, String password, Gender gender) {
-        this.firstName = firstName;
-        LastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.gender = gender;
+    public Student() {
     }
 
     public String getFirstName() {
@@ -85,17 +71,34 @@ public class Student {
         this.lesson = lesson;
     }
 
-    @Override
-    public String toString() {
-        return  "| Student{" +
-                "| firstName: " + firstName +
-                "| LastName:  " + LastName +
-                "| email:  " + email +
-                "| password : " + password +
-                "| gender : " + gender +
-                "| group: " + group +
-                "| lesson: " + lesson;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Student(String firstName, String lastName, String email, String password, Gender gender) {
+        this.firstName = firstName;
+        LastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.gender = gender;
+        this.group = group;
+        this.lesson = lesson;
+        this.id = id;
 
     }
 
+    @Override
+    public String toString() {
+        return "Student " +
+                "firstName: " + firstName +
+                " LastName: " + LastName +
+                " email: " + email +
+                " password:" + password +
+                " gender:" + gender +
+                " id:" + id;
+    }
 }

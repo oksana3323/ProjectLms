@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Scanner;
+
 public class Users {
     private String email;
     private String password;
@@ -8,7 +10,8 @@ public class Users {
         this.email = email;
         this.password = password;
     }
-
+public void getAdmin(){
+}
     public String getEmail() {
         return email;
     }
@@ -27,9 +30,8 @@ public class Users {
 
     @Override
     public String toString() {
-        return "Users{" +
-                "email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        return  "|Users: " +
+                "|email: " + email +
+                "|password: " + password;
     }
 }

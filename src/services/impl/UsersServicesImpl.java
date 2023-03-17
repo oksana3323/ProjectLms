@@ -12,6 +12,6 @@ public class UsersServicesImpl implements UsersServices {
                 return "yes";
             }
         }
-        return null;
+        return "no";
     }
 }

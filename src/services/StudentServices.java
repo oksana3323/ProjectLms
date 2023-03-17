@@ -9,6 +9,8 @@ public interface StudentServices {
     void addNewStudentToGroup(List<Group> groups, List<Student>studentList,String name);
     void updateStudent(List<Student>studentList,String name);
     Student findByName(String name,List<Student>students);
-    List<Student>getAllStudentByGroupName(String name,List<Student>studentList,List<Group>groupList);
-   List<Student> getAllStudentsLesson(List<Group>groups, List<Student>studentList, String lessonName);
+    void getAllStudentByGroupName(String name,List<Student>studentList,List<Group>groupList);
+   void getAllStudentsLesson(List<Group>groups, List<Student>studentList, String lessonName);
+void deleteStudent(List<Student>studentList,String name);
+
 }

@@ -1,6 +1,8 @@
 package models;
 
+
 public class Lesson {
+    private int id;
     private String lessonName;
     private Group group;
     private Student student;
@@ -9,6 +11,11 @@ public class Lesson {
         this.lessonName = lessonName;
         this.group = group;
         this.student = student;
+    }
+
+    public Lesson(int id, String lessonName) {
+        this.id = id;
+        this.lessonName = lessonName;
     }
 
     public String getLessonName() {
@@ -37,10 +44,7 @@ public class Lesson {
 
     @Override
     public String toString() {
-        return "Lesson{" +
-                "lessonName='" + lessonName + '\'' +
-                ", group=" + group +
-                ", student=" + student +
-                '}';
+        return "Lesson{" +id+
+                " lessonName='" + lessonName + '\'' +'}';
     }
 }
