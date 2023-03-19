@@ -39,17 +39,20 @@ public class Main {
         LessonServicesImpl lessonServices = new LessonServicesImpl();
 
         Users users = new Users("oksana@gmail.com", "oksana");
-        System.out.println("0 басксын басып  электроный почтанызды жазыныз " + users.getEmail());
+        System.out.println( users.getEmail());
 
         Group group = new Group();
 
         while (true
         ) {
             try {
+                System.out.println("0 Басыныз ");
+                String email=scanner.nextLine();
                 System.out.print("email : ");
-                String email = scanner.nextLine();
+                String email1 = scanner.nextLine();
                 System.out.print("password : ");
                 String password = scanner.nextLine();
+
                 String yes = usersServices.yesOrNot(email, password, users);
                 if (yes.equals("no")) {
                     throw new NullPointerException("Please write your email or password first");
