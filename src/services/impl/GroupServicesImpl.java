@@ -12,15 +12,20 @@ public class GroupServicesImpl implements GroupServices {
 
     @Override
     public void addNewGroup(List<Group> groupList) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a name for the new group : ");
-        String name = scanner.nextLine();
-        System.out.print("description : ");
-        String description = scanner.nextLine();
-        Group group = new Group(name, description, num++);
-        groupList.add(group);
-    }
+        try {
 
+
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Enter a name for the new group : ");
+            String name = scanner.nextLine();
+            System.out.print("description : ");
+            String description = scanner.nextLine();
+            Group group = new Group(name, description, num++);
+            groupList.add(group);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
     @Override
     public void getGroupByName(List<Group> groupList, String name) {
         System.out.println("Get group by name:  ");
@@ -33,20 +38,25 @@ public class GroupServicesImpl implements GroupServices {
 
     @Override
     public void updateGroupByName(List<Group> groupList, String name) {
-        Scanner scanner = new Scanner(System.in);
-        for (Group group : groupList) {
-            if (group.getName().equalsIgnoreCase(name)) {
-                System.out.print("Write new name : ");
-                String name1 = scanner.nextLine();
-                System.out.print("description : ");
-                String description = scanner.nextLine();
-                group.setName(name1);
-                group.setDescriptions(description);
+        try {
+
+
+            Scanner scanner = new Scanner(System.in);
+            for (Group group : groupList) {
+                if (group.getName().equalsIgnoreCase(name)) {
+                    System.out.print("Write new name : ");
+                    String name1 = scanner.nextLine();
+                    System.out.print("description : ");
+                    String description = scanner.nextLine();
+                    group.setName(name1);
+                    group.setDescriptions(description);
+                }
             }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
-
-    @Override
+        @Override
     public void User() {
 
     }

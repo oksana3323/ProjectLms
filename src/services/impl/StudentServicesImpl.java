@@ -35,7 +35,7 @@ public class StudentServicesImpl implements StudentServices {
                     student.setPassword(password);
                     System.out.print("gender : ");
                     String gender = scanner.nextLine();
-                    if (gender.equals(Gender.MALE.name())) {
+                    if (gender.equalsIgnoreCase(Gender.MALE.name())) {
                         student.setGender(Gender.MALE);
                         student.setGender(Gender.FEMALE);
                     } else {
@@ -55,30 +55,34 @@ public class StudentServicesImpl implements StudentServices {
 
     @Override
     public void updateStudent(List<Student> studentList, String name) {
+        try {
 
-        Scanner scanner = new Scanner(System.in);
-        for (Student student : studentList) {
-            if (student.getFirstName().equalsIgnoreCase(name)) {
-                System.out.print("first name : ");
-                String firstName = scanner.nextLine();
-                System.out.print("last name : ");
-                String lastName = scanner.nextLine();
-                System.out.print("email : ");
-                String email = scanner.nextLine();
-                System.out.print("password : ");
-                String password = scanner.nextLine();
-                System.out.print("gender : ");
-                String gender = scanner.nextLine();
-                student.setFirstName(firstName);
-                student.setLastName(lastName);
-                student.setEmail(email);
-                student.setPassword(password);
-                student.setGender(Gender.valueOf(gender));
+
+            Scanner scanner = new Scanner(System.in);
+            for (Student student : studentList) {
+                if (student.getFirstName().equalsIgnoreCase(name)) {
+                    System.out.print("first name : ");
+                    String firstName = scanner.nextLine();
+                    System.out.print("last name : ");
+                    String lastName = scanner.nextLine();
+                    System.out.print("email : ");
+                    String email = scanner.nextLine();
+                    System.out.print("password : ");
+                    String password = scanner.nextLine();
+                    System.out.print("gender : ");
+                    String gender = scanner.nextLine();
+                    student.setFirstName(firstName);
+                    student.setLastName(lastName);
+                    student.setEmail(email);
+                    student.setPassword(password);
+                    student.setGender(Gender.valueOf(gender));
+                }
             }
+        } catch (IllegalArgumentException e) {
+            throw new RuntimeException(e);
         }
     }
-
-    @Override
+        @Override
     public Student findByName(String name, List<Student> students) {
         for (Student student : students) {
             if (student.getFirstName().equalsIgnoreCase(name)) {
@@ -100,15 +104,19 @@ public class StudentServicesImpl implements StudentServices {
 
     @Override
     public void getAllStudentsLesson(List<Group> groups, List<Student> studentList, String lessonName) {
+        try {
 
-        for (Student student : studentList) {
-            if (student.getLesson().getLessonName().equalsIgnoreCase(lessonName)) {
-                System.out.println(student);
+
+            for (Student student : studentList) {
+                if (student.getLesson().getLessonName().equalsIgnoreCase(lessonName)) {
+                    System.out.println(student);
+                }
             }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
-
-    @Override
+        @Override
     public void deleteStudent(List<Student> studentList, String name) {
         for (Student student : studentList) {
             if (student.getFirstName().equalsIgnoreCase(name)) {
